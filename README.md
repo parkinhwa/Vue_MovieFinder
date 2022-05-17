@@ -1,2 +1,2 @@
-
+## Movie Finder with Vue
 
