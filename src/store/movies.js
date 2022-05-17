@@ -18,7 +18,7 @@ export default {
     async findMovietitle({ commit }, payload) {
       const { title } = payload;
       const movies = await fetch(
-        `./netlify/functions/movies&s=${title}&page=1`,
+        `/.netlify/functions/movie&s=${title}&page=1`,
         {
           method: "GET",
         }
@@ -30,7 +30,7 @@ export default {
     async detailMoviecontent({ commit }, payload) {
       const { id } = payload;
       const moviescontent = await fetch(
-        `./netlify/functions/movies&i=${id}&plot=full`
+        `/.netlify/functions/movie&i=${id}&plot=full`
       ).then((res) => res.json());
       commit("assignState", {
         moviescontent,
