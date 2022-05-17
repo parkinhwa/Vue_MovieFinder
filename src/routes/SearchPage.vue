@@ -73,7 +73,6 @@ export default {
   },
   methods: {
     keyupHandler(event) {
-      console.log(event.key);
       if (event.key === "Enter") {
         this.findmovietitle(this.title);
       }
