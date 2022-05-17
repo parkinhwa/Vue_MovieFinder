@@ -1,7 +1,9 @@
-exports.handler = async function () {
-  console.log("hello");
+exports.handler = async function (event, context) {
   return {
-    statusCode: 304,
-    body: JSON.stringify({ name: "hello" }),
+    statusCode: 200,
+    body: JSON.stringify({ 
+      name: "hello", 
+      email: "hello@gmail.com" 
+    }),
   };
 };
