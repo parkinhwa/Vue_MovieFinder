@@ -1,6 +1,8 @@
 const path = require("path");
 const { VueLoaderPlugin } = require("vue-loader");
 const HtmlPlugin = require("html-webpack-plugin");
+const webpack = require('webpack')
+const dotenv = require("dotenv").config();
 
 module.exports = {
   resolve: {
@@ -41,6 +43,7 @@ module.exports = {
     new HtmlPlugin({
       template: "./src/index.html",
     }),
+    new webpack.EnvironmentPlugin(Object.keys(dotenv.parsed || {}))
   ],
   devServer: {
     historyApiFallback: true,
