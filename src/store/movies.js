@@ -1,3 +1,4 @@
+const { API_KEY } = process.env
 export default {
   namespaced: true,
   state() {
@@ -18,7 +19,7 @@ export default {
     async findMovietitle({ commit }, payload) {
       const { title } = payload;
       const movies = await fetch(
-        `https://www.omdbapi.com?apikey=${process.env.API_KEY}&s=${title}&page=1`,
+        `https://www.omdbapi.com?apikey=${API_KEY}&s=${title}&page=1`,
         {
           method: "GET",
         }
@@ -30,7 +31,7 @@ export default {
     async detailMoviecontent({ commit }, payload) {
       const { id } = payload;
       const moviescontent = await fetch(
-        `https://www.omdbapi.com?apikey=${process.env.API_KEY}&i=${id}&plot=full`
+        `https://www.omdbapi.com?apikey=${API_KEY}&i=${id}&plot=full`
       ).then((res) => res.json());
       commit("assignState", {
         moviescontent,
