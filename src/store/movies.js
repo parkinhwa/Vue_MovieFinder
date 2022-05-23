@@ -47,7 +47,7 @@ export default {
 };
 async function _request(options) {
   return await fetch("/.netlify/functions/movie", {
-    method: "GET",
+    method: "POST",
     body: JSON.stringify(options),
   }).then((res) => res.json());
 }
