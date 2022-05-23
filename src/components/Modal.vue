@@ -64,7 +64,6 @@ export default {
       default: 1000,
     },
   },
-  // esc 키 누르면 modal 종료되는 이벤트
   watch: {
     visible(newValue) {
       if (newValue) {

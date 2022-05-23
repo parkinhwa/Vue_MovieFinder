@@ -42,7 +42,7 @@
       <div class="movie-title">{{ movie.Title }}</div>
     </div>
   </main>
-  <Modal v-model:modelValue="isShow" v-model:movieId="movieId"></Modal>
+  <Modal v-model:visible="isShow" v-model:movieId="movieId"></Modal>
 </template>
 <script>
 import Modal from "~/components/Modal";
