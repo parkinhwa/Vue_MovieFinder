@@ -49,14 +49,14 @@ import Modal from "~/components/Modal";
 export default {
   data() {
     return {
-      title: this.titleinit,
+      title: this.titleInit,
       movieId: "",
       isShow: false,
     };
   },
   mounted() {
-    if (this.titleinit) {
-      this.findmovietitle(this.titleinit);
+    if (this.titleInit) {
+      this.findmovietitle(this.titleInit);
     }
   },
   components: {
@@ -93,7 +93,7 @@ export default {
       }
     },
   },
-  props: ["titleinit"],
+  props: ["titleInit"],
 };
 </script>
 <style src="~/css/styles.css" scoped></style>
