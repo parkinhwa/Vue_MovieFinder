@@ -4,7 +4,7 @@ export default {
   state() {
     return {
       movies: [],
-      moviescontent: [],
+      moviescontent: {},
     };
   },
   getters: {},
