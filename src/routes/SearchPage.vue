@@ -83,9 +83,9 @@ export default {
     movieIdUpdate(id) {
       this.movieId = id;
     },
-    async findmovietitle(title) {
+    findmovietitle(title) {
       if (title.trim()) {
-        await this.$store.dispatch("movies/findMovietitle", {
+        this.$store.dispatch("movies/findMovietitle", {
           title,
         });
       } else {
