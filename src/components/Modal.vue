@@ -1,6 +1,6 @@
 <template>
-  <teleport to="body">
-    <template v-if="modelValue">
+  <template v-if="visible">
+    <teleport to="body">
       <div class="modal" @click="offModal">
         <div
           :style="{ width: `${parseInt(width, 10)}px` }"
@@ -44,14 +44,14 @@
           <button class="close" @click="offModal">X</button>
         </div>
       </div>
-    </template>
-  </teleport>
+    </teleport>
+  </template>
 </template>
 
 <script>
 export default {
   props: {
-    modelValue: {
+    visible: {
       type: Boolean,
       default: false,
     },
@@ -66,7 +66,7 @@ export default {
   },
   // esc 키 누르면 modal 종료되는 이벤트
   watch: {
-    modelValue(newValue) {
+    visible(newValue) {
       if (newValue) {
         window.addEventListener("keyup", this.keyupHandler);
       } else {
@@ -83,11 +83,8 @@ export default {
         this.offModal();
       }
     },
-    onModal() {
-      this.$emit("update:modelValue", true);
-    },
     offModal() {
-      this.$emit("update:modelValue", false);
+      this.$emit("update:visible", false);
     },
     detailmoviecontent(id) {
       this.$store.dispatch("movies/detailMoviecontent", {
@@ -95,7 +92,7 @@ export default {
       });
     },
   },
-  emits: ["update:modelValue"],
+  emits: ["update:visible"],
 };
 </script>
 
