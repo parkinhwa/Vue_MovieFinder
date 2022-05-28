@@ -3,7 +3,8 @@
 
 👉 [Movie Finder 링크](https://main--fastidious-snickerdoodle-3a9c1c.netlify.app/)
 
-https://user-images.githubusercontent.com/65644486/170808111-17dbcdae-b8ed-4bfa-bd51-2d418e7d3e23.mp4
+![ezgif com-gif-maker (11)](https://user-images.githubusercontent.com/65644486/170838805-894eb18c-6f1d-46ac-9cfb-bf4fd52154ed.gif)
+
 
 ### 프로젝트 구조
 
