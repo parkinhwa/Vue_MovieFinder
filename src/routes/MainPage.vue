@@ -42,19 +42,20 @@
 </template>
 
 <script>
+import video from "../assets/mp4/bg.mp4";
 export default {
   data() {
     return {
-      video: require("../assets/mp4/bg.mp4"),
+      video,
       title: "",
     };
   },
   watch: {
     title(newValue) {
       if (newValue) {
-        window.addEventListener("keyup", this.keyupHandler);
+        window.addEventListener("keyup", this.KeyupHandler);
       } else {
-        window.removeEventListener("keyup", this.keyupHandler);
+        window.removeEventListener("keyup", this.KeyupHandler);
       }
     },
   },
@@ -74,4 +75,4 @@ export default {
   },
 };
 </script>
-<style src="~/css/styles.css" scoped></style>
+<style src="~/css/styles.css" scoped />
