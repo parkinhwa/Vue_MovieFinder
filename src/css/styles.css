@@ -11792,6 +11792,12 @@ video.bg-video {
   background-color: rgba(0, 0, 0, 0.9);
   /* grid-auto-flow: column; */
 }
+.skelotons-movie-container {
+  width: 300px;
+  height: 480px;
+  background-color: lightgray;
+  animation: skeleton-gradient 1.8s infinite ease-in-out;
+}
 .movie-container {
   justify-self: center;
   align-self: center;
@@ -11860,5 +11866,17 @@ video.bg-video {
     top: 0;
     right: 2.5rem;
     width: auto;
+  }
+}
+
+@keyframes skeleton-gradient {
+  0% {
+    background-color: rgba(200, 200, 200, 0.1);
+  }
+  50% {
+    background-color: rgba(200, 200, 200, 0.3);
+  }
+  100% {
+    background-color: rgba(200, 200, 200, 0.1);
   }
 }
