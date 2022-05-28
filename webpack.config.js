@@ -1,8 +1,7 @@
 const path = require("path");
 const { VueLoaderPlugin } = require("vue-loader");
 const HtmlPlugin = require("html-webpack-plugin");
-const webpack = require("webpack");
-const dotenv = require("dotenv").config();
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   resolve: {
@@ -43,8 +42,10 @@ module.exports = {
     new HtmlPlugin({
       template: "./src/index.html",
     }),
-    new webpack.DefinePlugin({
-      'process.env': JSON.stringify(process.env)
+    new CopyPlugin({
+      patterns: [
+        {from: 'static'}
+      ]
     })
   ],
   devServer: {
