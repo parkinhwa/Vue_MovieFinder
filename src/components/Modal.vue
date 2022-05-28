@@ -7,40 +7,45 @@
           class="modal__inner"
           @click.stop
         >
-          <img
-            class="modal-movie-poster"
-            :src="$store.state.movies.moviescontent.Poster"
-          />
-          <div class="modal-movie-content">
-            <div class="modal-movie-title">
-              {{ $store.state.movies.moviescontent.Title }}
+          <template v-if="$store.state.movies.modalLoading">
+            <img
+              class="modal-movie-poster"
+              :src="$store.state.movies.moviescontent.Poster"
+            />
+            <div class="modal-movie-content">
+              <div class="modal-movie-title">
+                {{ $store.state.movies.moviescontent.Title }}
+              </div>
+              <div class="modal-movie-gdr">
+                <div class="modal-movie-genre">
+                  {{ $store.state.movies.moviescontent.Genre }}
+                </div>
+                <div class="modal-movie-date">
+                  {{ $store.state.movies.moviescontent.Released }}
+                </div>
+                <div class="modal-movie-runtime">
+                  {{ $store.state.movies.moviescontent.Runtime }}
+                </div>
+              </div>
+              <div class="modal-movie-dap">
+                <div class="modal-movie-director">
+                  <div class="modal-movie-director-text">Director :&nbsp</div>
+                  {{ $store.state.movies.moviescontent.Director }}
+                </div>
+                <div class="modal-movie-actors">
+                  <div class="modal-movie-actors-text">Actors :&nbsp</div>
+                  {{ $store.state.movies.moviescontent.Actors }}
+                </div>
+                <div class="modal-movie-plot-text">Content</div>
+                <div class="modal-movie-plot">
+                  {{ $store.state.movies.moviescontent.Plot }}
+                </div>
+              </div>
             </div>
-            <div class="modal-movie-gdr">
-              <div class="modal-movie-genre">
-                {{ $store.state.movies.moviescontent.Genre }}
-              </div>
-              <div class="modal-movie-date">
-                {{ $store.state.movies.moviescontent.Released }}
-              </div>
-              <div class="modal-movie-runtime">
-                {{ $store.state.movies.moviescontent.Runtime }}
-              </div>
-            </div>
-            <div class="modal-movie-dap">
-              <div class="modal-movie-director">
-                <div class="modal-movie-director-text">Director :&nbsp</div>
-                {{ $store.state.movies.moviescontent.Director }}
-              </div>
-              <div class="modal-movie-actors">
-                <div class="modal-movie-actors-text">Actors :&nbsp</div>
-                {{ $store.state.movies.moviescontent.Actors }}
-              </div>
-              <div class="modal-movie-plot-text">Content</div>
-              <div class="modal-movie-plot">
-                {{ $store.state.movies.moviescontent.Plot }}
-              </div>
-            </div>
-          </div>
+          </template>
+          <template v-else>
+            <Skelotons />
+          </template>
           <button class="close" @click="offModal">X</button>
         </div>
       </div>
@@ -49,7 +54,11 @@
 </template>
 
 <script>
+import Skelotons from "../components/Skelotons.vue";
 export default {
+  components: {
+    Skelotons,
+  },
   props: {
     visible: {
       type: Boolean,

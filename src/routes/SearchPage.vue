@@ -34,12 +34,17 @@
       class="movie-container"
       v-for="movie in $store.state.movies.movies.Search"
     >
-      <img
-        class="movie-poster"
-        :src="movie.Poster"
-        @click="[isShowUpdate(isShow), movieIdUpdate(movie.imdbID)]"
-      />
-      <div class="movie-title">{{ movie.Title }}</div>
+      <template v-if="$store.state.movies.posterLoading">
+        <img
+          class="movie-poster"
+          :src="movie.Poster"
+          @click="[isShowUpdate(isShow), movieIdUpdate(movie.imdbID)]"
+        />
+        <div class="movie-title">{{ movie.Title }}</div>
+      </template>
+      <template v-else>
+        <div class="skelotons-movie-container"></div>
+      </template>
     </div>
   </main>
   <Modal v-model:visible="isShow" v-model:movieId="movieId"></Modal>
@@ -96,4 +101,4 @@ export default {
   props: ["titleInit"],
 };
 </script>
-<style src="~/css/styles.css" scoped></style>
+<style src="~/css/styles.css" scoped />
